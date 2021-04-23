@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     private ContactFilter2D _filter2D = new ContactFilter2D().NoFilter();
     public GameObject lost;
     public GameObject spawner;
+    public AudioSource sound;
+    public AudioClip addClip;
+    public AudioClip shootClip;
     
     private void Awake()
     {
@@ -82,6 +85,7 @@ public class Player : MonoBehaviour
 
     public void HandleShoot(InputAction.CallbackContext ctx)
     {
+        sound.PlayOneShot(shootClip);
         if (selfCollider.OverlapCollider(_filter2D, colliders) == 0)
         {
             var projectileRigidbody = Instantiate(projectiles[value-1]).GetComponent<Rigidbody2D>();
@@ -91,6 +95,7 @@ public class Player : MonoBehaviour
 
     public void AddAction(InputAction.CallbackContext ctx)
     {
+        sound.PlayOneShot(addClip);
         value++;
         if (value > 9) value = 1;
         spriteRenderer.sprite = sprites[value-1];
@@ -101,6 +106,7 @@ public class Player : MonoBehaviour
     {
         value = 1;
         spriteRenderer.sprite = sprites[value-1];
+        sound = GetComponent<AudioSource>();
     }
 
 

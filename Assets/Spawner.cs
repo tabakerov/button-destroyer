@@ -10,10 +10,14 @@ public class Spawner : MonoBehaviour
     public float radiusMinMult;
     public float radiusMaxMult;
     public float spawnRateDelta;
+
+    public AudioClip spawnSound;
+
+    public AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +25,7 @@ public class Spawner : MonoBehaviour
     {
         if (Time.time > spawnedTime + spawnRate)
         {
+            sound.PlayOneShot(spawnSound);
             Instantiate(projectiles[Random.Range(0, 9)], 
                             Random.insideUnitCircle.normalized 
                             * spawnRadius 
