@@ -19,7 +19,10 @@ public class Player : MonoBehaviour
     public InputAction addAction;
     public InputAction shootAction;
     public Camera camera;
-
+    public Collider2D selfCollider;
+    public Collider2D[] colliders = new Collider2D[1];
+    private ContactFilter2D _filter2D = new ContactFilter2D().NoFilter();
+    
     private void Awake()
     {
         shootAction.performed += HandleShoot;
@@ -52,12 +55,11 @@ public class Player : MonoBehaviour
 
     public void HandleShoot(InputAction.CallbackContext ctx)
     {
-       // if (lastShot + fireRate < Time.time)
-        //       {
-         //          lastShot = Time.time;
+        if (selfCollider.OverlapCollider(_filter2D, colliders) == 0)
+        {
             var projectileRigidbody = Instantiate(projectiles[value-1]).GetComponent<Rigidbody2D>();
             projectileRigidbody.AddForce(target.position.normalized * shootForce);
-       // }
+        }
     }
 
     public void AddAction(InputAction.CallbackContext ctx)

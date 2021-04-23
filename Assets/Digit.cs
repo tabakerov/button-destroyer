@@ -10,7 +10,7 @@ public class Digit : MonoBehaviour
     public float speed;
     public int value;
     public Rigidbody2D thisRigidbody;
-    private bool old;
+    public bool old;
     public GameObject digit;
     public Score score;
 
