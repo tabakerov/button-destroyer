@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour
     public Collider2D selfCollider;
     public Collider2D[] colliders = new Collider2D[1];
     private ContactFilter2D _filter2D = new ContactFilter2D().NoFilter();
+    public GameObject lost;
+    public GameObject spawner;
     
     private void Awake()
     {
@@ -51,6 +54,27 @@ public class Player : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0f, 0f,  - Mathf.Rad2Deg * Mathf.Asin(vector.x));
         //transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(new Vector3(vector.x, vector.y, 0f), new Vector3(0f, 0f, 1f)));
         //transform.SetPositionAndRotation(new Vector3(vector.x, vector.y, 0f), Quaternion.identity);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Digit digit;
+        if (other.TryGetComponent(out digit))
+        {
+            if (digit.old)
+            {
+                Destroy(spawner);
+                lost.SetActive(true);
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public void Kill()
+    {
+        Destroy(spawner);
+        lost.SetActive(true);
+        Destroy(gameObject);
     }
 
     public void HandleShoot(InputAction.CallbackContext ctx)

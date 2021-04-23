@@ -42,6 +42,11 @@ public class Digit : MonoBehaviour
     {
         Digit otherDigit;
         Debug.Log("collision");
+        Player player;
+        if (other.collider.TryGetComponent(out player) && old)
+        {
+            player.Kill();
+        }
         if (other.collider.TryGetComponent(out otherDigit))
         {
             Debug.Log("other digit");
