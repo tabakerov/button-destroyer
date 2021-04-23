@@ -264,6 +264,49 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f80f70eb39974a940bd5901dcb707373, type: 3}
   - {fileID: 21300000, guid: d596473c2122200438c71e19df89cab3, type: 3}
   - {fileID: 21300000, guid: a9cf5a379c0e15446b2c3faabcaea67b, type: 3}
+--- !u!1 &391825788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391825789}
+  - component: {fileID: 391825790}
+  m_Layer: 0
+  m_Name: Reloader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391825789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391825788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.044210926, y: -1.1628307, z: -8.533026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &391825790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391825788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885309e92e72b214a9c4307c043ca9b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +625,7 @@ MonoBehaviour:
   - {fileID: 2005040075940511715, guid: 2335c3584d189a1478f057611199e2c2, type: 3}
   - {fileID: 8130938328494798303, guid: 1dbbc3ef03622db4b963c32de00f3c82, type: 3}
   - {fileID: 8217593924423903862, guid: b8b79e55cc577f74f8cac2a6953ab65e, type: 3}
-  spawnRate: 5
+  spawnRate: 4
   spawnRadius: 8
   radiusMinMult: 0.8
   radiusMaxMult: 1.2
@@ -833,7 +876,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 0}
   lost: {fileID: 643402676}
-  spawner: {fileID: 0}
+  spawner: {fileID: 897068456}
 --- !u!114 &1376308196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,7 +980,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

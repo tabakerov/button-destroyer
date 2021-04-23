@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -61,11 +62,12 @@ public class Player : MonoBehaviour
         Digit digit;
         if (other.TryGetComponent(out digit))
         {
+            Debug.Log("kill me!");
             if (digit.old)
             {
-                Destroy(spawner);
+               // Destroy(spawner);
                 lost.SetActive(true);
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
     {
         Destroy(spawner);
         lost.SetActive(true);
+        FindObjectOfType<Reloader>().Reset();
         Destroy(gameObject);
     }
 
@@ -100,11 +103,12 @@ public class Player : MonoBehaviour
         spriteRenderer.sprite = sprites[value-1];
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
         var mouse = Mouse.current.position.ReadValue();
-        var screen = Screen.currentResolution;
         target.position = 2f * camera.ScreenToViewportPoint(mouse) - new Vector3(1f, 1f, 0f);
         transform.LookAt(target.position, Vector3.back);
 

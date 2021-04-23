@@ -29,6 +29,7 @@ public class Spawner : MonoBehaviour
                             Quaternion.identity);
             spawnedTime = Time.time;
             spawnRate += spawnRateDelta;
+            if (spawnRate < 0.3f) spawnRate = 0.3f;
         }
     }
 }
