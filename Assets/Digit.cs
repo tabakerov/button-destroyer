@@ -13,6 +13,7 @@ public class Digit : MonoBehaviour
     public bool old;
     public GameObject digit;
     public Score score;
+    public AudioSource sound;
 
     void GrowUp()
     {
@@ -25,6 +26,7 @@ public class Digit : MonoBehaviour
         score = FindObjectOfType<Score>();
         thisRigidbody = GetComponent<Rigidbody2D>();
         Invoke("GrowUp", 1f);
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class Digit : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
+        sound.PlayOneShot(sound.clip);
         Digit otherDigit;
         //Debug.Log("collision");
         Player player;
