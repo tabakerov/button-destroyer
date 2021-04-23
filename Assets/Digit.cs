@@ -12,7 +12,7 @@ public class Digit : MonoBehaviour
     public Rigidbody2D thisRigidbody;
     private bool old;
     public GameObject digit;
-
+    public Score score;
 
     void GrowUp()
     {
@@ -22,6 +22,7 @@ public class Digit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = FindObjectOfType<Score>();
         thisRigidbody = GetComponent<Rigidbody2D>();
         Invoke("GrowUp", 1f);
     }
@@ -48,7 +49,7 @@ public class Digit : MonoBehaviour
             if (otherDigit.value + value == 10)
             {
                 Debug.Log("sum ok");
-
+                score.AddScore();
                 Destroy(other.gameObject);
                 Destroy(gameObject);
 
