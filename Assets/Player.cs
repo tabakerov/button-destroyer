@@ -17,19 +17,33 @@ public class Player : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     
     public InputAction addAction;
+    public InputAction shootAction;
     public Camera camera;
 
     private void Awake()
     {
-        
+        shootAction.performed += HandleShoot;
+        addAction.performed += AddAction;
+    }
+
+    private void OnEnable()
+    {
+        shootAction.Enable();
+        addAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        shootAction.Disable();
+        addAction.Disable();
     }
 
     public void OnTurn(InputAction.CallbackContext inputValue)
     {
         Vector2 vector = inputValue.ReadValue<Vector2>();
         target.position = vector;
-        if (vector.sqrMagnitude > 0.01f)
-            transform.LookAt(target.position, Vector3.back);
+        //if (vector.sqrMagnitude > 0.01f)
+            
         
         //transform.rotation = Quaternion.Euler(0f, 0f,  - Mathf.Rad2Deg * Mathf.Asin(vector.x));
         //transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(new Vector3(vector.x, vector.y, 0f), new Vector3(0f, 0f, 1f)));
@@ -38,15 +52,15 @@ public class Player : MonoBehaviour
 
     public void HandleShoot(InputAction.CallbackContext ctx)
     {
-        if (lastShot + fireRate < Time.time)
-        {
-            lastShot = Time.time;
+       // if (lastShot + fireRate < Time.time)
+        //       {
+         //          lastShot = Time.time;
             var projectileRigidbody = Instantiate(projectiles[value-1]).GetComponent<Rigidbody2D>();
             projectileRigidbody.AddForce(target.position.normalized * shootForce);
-        }
+       // }
     }
 
-    public void Add()
+    public void AddAction(InputAction.CallbackContext ctx)
     {
         value++;
         if (value > 9) value = 1;
@@ -66,6 +80,7 @@ public class Player : MonoBehaviour
         var mouse = Mouse.current.position.ReadValue();
         var screen = Screen.currentResolution;
         target.position = 2f * camera.ScreenToViewportPoint(mouse) - new Vector3(1f, 1f, 0f);
+        transform.LookAt(target.position, Vector3.back);
 
     }
 }
