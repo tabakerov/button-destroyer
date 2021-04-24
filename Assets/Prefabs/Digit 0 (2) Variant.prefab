@@ -65,7 +65,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 87e2452fe2c754248926c9a9ab93a467, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -213,6 +213,10 @@ PrefabInstance:
       propertyPath: value
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
+      propertyPath: collapseVfxPrefab
+      value: 
+      objectReference: {fileID: 2819803038668983821, guid: 59d484c224286114caddd111aaf51049, type: 3}
     - target: {fileID: 7496061891155394671, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: m_Name
       value: Digit 0 (2) Variant

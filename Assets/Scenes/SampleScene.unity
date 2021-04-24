@@ -936,7 +936,7 @@ MonoBehaviour:
   - {fileID: 6641166165982263982, guid: a8967474cdfdc3541b82b1f6bb320640, type: 3}
   - {fileID: 1984647940081674154, guid: 80164a0da2793034a896e97d9b116c34, type: 3}
   shootForce: 500
-  fireRate: 1
+  fireRate: 0.1
   value: 0
   spriteRenderer: {fileID: 144503854}
   addAction:

@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     public AudioClip addClip;
     public AudioClip shootClip;
     
+    
     private void Awake()
     {
         shootAction.performed += HandleShoot;
@@ -85,11 +86,16 @@ public class Player : MonoBehaviour
 
     public void HandleShoot(InputAction.CallbackContext ctx)
     {
-        sound.PlayOneShot(shootClip);
+        
         if (selfCollider.OverlapCollider(_filter2D, colliders) == 0)
         {
-            var projectileRigidbody = Instantiate(projectiles[value-1]).GetComponent<Rigidbody2D>();
-            projectileRigidbody.AddForce(target.position.normalized * shootForce);
+            if (lastShot + fireRate < Time.time)
+            {
+                lastShot = Time.time;
+                sound.PlayOneShot(shootClip);
+                var projectileRigidbody = Instantiate(projectiles[value - 1]).GetComponent<Rigidbody2D>();
+                projectileRigidbody.AddForce(target.position.normalized * shootForce);
+            }
         }
     }
 

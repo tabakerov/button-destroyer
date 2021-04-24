@@ -14,6 +14,8 @@ public class Digit : MonoBehaviour
     public GameObject digit;
     public Score score;
     public AudioSource sound;
+    public bool master;
+    public GameObject collapseVfxPrefab;
 
     void GrowUp()
     {
@@ -27,6 +29,7 @@ public class Digit : MonoBehaviour
         thisRigidbody = GetComponent<Rigidbody2D>();
         Invoke("GrowUp", 1f);
         sound = GetComponent<AudioSource>();
+        master = true;
     }
 
     // Update is called once per frame
@@ -56,11 +59,15 @@ public class Digit : MonoBehaviour
 
             if (otherDigit.value + value == 10)
             {
-               // Debug.Log("sum ok");
-                score.AddScore();
-                Destroy(other.gameObject);
-                Destroy(gameObject);
-
+                if (master)
+                {
+                    otherDigit.master = false;
+                    score.AddScore();
+                    var vfx  = Instantiate(collapseVfxPrefab, other.GetContact(0).point, Quaternion.identity);
+                    Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                }
             }
             else
             {

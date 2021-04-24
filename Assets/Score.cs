@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
     public void AddScore()
     {
         score++;
-        firstDigit.sprite = sprites[(score /2) % 10];
-        secondDigit.sprite = sprites[((score / 2) / 10) % 10];
+        firstDigit.sprite = sprites[score % 10];
+        secondDigit.sprite = sprites[(score / 10) % 10];
     }
 }
