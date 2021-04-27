@@ -17,6 +17,7 @@ public class Digit : MonoBehaviour
     public GameObject collapseVfxPrefab;
     public int targetSum;
     public GameObject collisionVfx;
+    public Player player;
     
     void GrowUp()
     {
@@ -31,6 +32,7 @@ public class Digit : MonoBehaviour
         thisRigidbody = GetComponent<Rigidbody2D>();
         Invoke("GrowUp", 1f);
         master = true;
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -38,21 +40,50 @@ public class Digit : MonoBehaviour
     {
         thisRigidbody.AddForce(- speed * Time.deltaTime * transform.position.normalized);
         transform.Translate(- Time.deltaTime * transform.position.normalized);
+       
+        
+        
         if (old && transform.position.sqrMagnitude < 0.5f)
         {
-            FindObjectOfType<Player>()?.Kill();
+            //Debug.Log($"{value} + {player.value} = {targetSum}");
+            if (player.value + value == targetSum)
+            {
+                score.AddScore();
+                var vfx  = Instantiate(collapseVfxPrefab, transform.position, Quaternion.identity);
+                Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
+                Destroy(gameObject);
+            }
+            else
+            {
+                player.Kill();    
+            }
+            
         }
     }
     
     private void OnCollisionEnter2D(Collision2D other)
     {
         Digit otherDigit;
-        //Debug.Log("collision");
+        Debug.Log("collision");
+        /*
         Player player;
         if (other.gameObject.TryGetComponent(out player) && old)
         {
-            player.Kill();
+            Debug.Log($"{value} + {player.value} = {targetSum}");
+            if (player.value + value == targetSum)
+            {
+                score.AddScore();
+                var vfx  = Instantiate(collapseVfxPrefab, transform.position, Quaternion.identity);
+                Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
+                Destroy(gameObject);
+            }
+            else
+            {
+                player.Kill();    
+            }
+            
         }
+        */
         if (other.gameObject.TryGetComponent(out otherDigit))
         {
             //Debug.Log("other digit");
@@ -63,8 +94,10 @@ public class Digit : MonoBehaviour
                 {
                     otherDigit.master = false;
                     score.AddScore();
-                    var vfx  = Instantiate(collapseVfxPrefab, other.GetContact(0).point, Quaternion.identity);
-                    Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
+                    var thisVfx  = Instantiate(collapseVfxPrefab, other.transform.position, Quaternion.identity);
+                    var otherVfx  = Instantiate(collapseVfxPrefab, transform.position, Quaternion.identity);
+                    Destroy(thisVfx, thisVfx.GetComponent<AudioSource>().clip.length);
+                    Destroy(otherVfx, otherVfx.GetComponent<AudioSource>().clip.length);
                     Destroy(other.gameObject);
                     Destroy(gameObject);
                 }

@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public AudioSource sound;
     public AudioClip addClip;
     public AudioClip shootClip;
+    public Score score;
     
     
     private void Awake()
@@ -60,27 +61,35 @@ public class Player : MonoBehaviour
         //transform.SetPositionAndRotation(new Vector3(vector.x, vector.y, 0f), Quaternion.identity);
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         Digit digit;
         if (other.TryGetComponent(out digit))
         {
+            
             Debug.Log("kill me!");
             if (digit.old)
             {
-               // Destroy(spawner);
-                lost.SetActive(true);
-                //Destroy(gameObject);
+                if (digit.value + value + 1 == alphabet.letters.Count + 1)
+                {
+                    
+                }
+                else
+                {
+                    lost.SetActive(true);
+                }
             }
         }
     }
+    */
 
     public void Kill()
     {
         Destroy(spawner);
         lost.SetActive(true);
         FindObjectOfType<Reloader>().Reset();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void HandleShoot(InputAction.CallbackContext ctx)
@@ -109,6 +118,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = FindObjectOfType<Score>();
         value = 1;
         spriteRenderer.sprite = alphabet.letters[value-1].GetComponent<SpriteRenderer>().sprite;
         sound = GetComponent<AudioSource>();
