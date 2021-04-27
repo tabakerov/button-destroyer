@@ -13,10 +13,11 @@ public class Digit : MonoBehaviour
     public bool old;
     public GameObject digit;
     public Score score;
-    public AudioSource sound;
     public bool master;
     public GameObject collapseVfxPrefab;
-
+    public int targetSum;
+    public GameObject collisionVfx;
+    
     void GrowUp()
     {
         old = true;
@@ -25,10 +26,10 @@ public class Digit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        targetSum = FindObjectOfType<Alphabet>().letters.Count + 1;
         score = FindObjectOfType<Score>();
         thisRigidbody = GetComponent<Rigidbody2D>();
         Invoke("GrowUp", 1f);
-        sound = GetComponent<AudioSource>();
         master = true;
     }
 
@@ -45,7 +46,6 @@ public class Digit : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        sound.PlayOneShot(sound.clip);
         Digit otherDigit;
         //Debug.Log("collision");
         Player player;
@@ -57,7 +57,7 @@ public class Digit : MonoBehaviour
         {
             //Debug.Log("other digit");
 
-            if (otherDigit.value + value == 10)
+            if (otherDigit.value + value == targetSum)
             {
                 if (master)
                 {
@@ -71,14 +71,12 @@ public class Digit : MonoBehaviour
             }
             else
             {
-                if (Random.value > 0.7f)
+                if (collisionVfx != null)
                 {
-                    //Debug.Log("bad luck");
-
-                    Instantiate(digit, other.GetContact(0).point, Quaternion.identity);
-                    Destroy(other.gameObject);
-                    Destroy(gameObject);
+                    var vfx  = Instantiate(collisionVfx, other.GetContact(0).point, Quaternion.identity);
+                    Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
                 }
+                
             }
         }
     }

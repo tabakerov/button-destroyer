@@ -10,8 +10,7 @@ public class Player : MonoBehaviour
 {
     public InputActionAsset input;
     public Transform target;
-    public List<Sprite> sprites;
-    public List<GameObject> projectiles;
+    public Alphabet alphabet;
     public float shootForce;
     public float fireRate;
     private float lastShot;
@@ -93,7 +92,7 @@ public class Player : MonoBehaviour
             {
                 lastShot = Time.time;
                 sound.PlayOneShot(shootClip);
-                var projectileRigidbody = Instantiate(projectiles[value - 1]).GetComponent<Rigidbody2D>();
+                var projectileRigidbody = Instantiate(alphabet.letters[value-1]).GetComponent<Rigidbody2D>();
                 projectileRigidbody.AddForce(target.position.normalized * shootForce);
             }
         }
@@ -103,15 +102,15 @@ public class Player : MonoBehaviour
     {
         sound.PlayOneShot(addClip);
         value++;
-        if (value > 9) value = 1;
-        spriteRenderer.sprite = sprites[value-1];
+        if (value > alphabet.letters.Count) value = 1;
+        spriteRenderer.sprite = alphabet.letters[value-1].GetComponent<SpriteRenderer>().sprite;
     }
     
     // Start is called before the first frame update
     void Start()
     {
         value = 1;
-        spriteRenderer.sprite = sprites[value-1];
+        spriteRenderer.sprite = alphabet.letters[value-1].GetComponent<SpriteRenderer>().sprite;
         sound = GetComponent<AudioSource>();
     }
 

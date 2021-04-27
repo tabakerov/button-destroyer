@@ -213,10 +213,18 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 30c0afecbf507a245b1f5ea723095dc9, type: 2}
+    - target: {fileID: 7496061891155394667, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: value
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
+      propertyPath: collisionVfx
+      value: 
+      objectReference: {fileID: 4362236339969516530, guid: ca8c6dc0cb2064b42bd3b82917293331, type: 3}
     - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: collapseVfxPrefab
       value: 
