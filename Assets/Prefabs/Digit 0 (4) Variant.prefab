@@ -1,5 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!60 &3622109729009794533
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368500203637424865}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.05891633, y: 0.32}
+      - {x: 0.05978374, y: 0.06932071}
+      - {x: -0.19139683, y: 0.070377916}
+      - {x: -0.19002816, y: 0.32}
+      - {x: -0.32, y: 0.32}
+      - {x: -0.32, y: -0.060917147}
+      - {x: 0.05898106, y: -0.060417943}
+      - {x: 0.058624282, y: -0.32}
+      - {x: 0.18933156, y: -0.31999996}
+      - {x: 0.18913585, y: -0.060606793}
+      - {x: 0.3191326, y: -0.061425466}
+      - {x: 0.31956863, y: 0.06999661}
+      - {x: 0.19162443, y: 0.06988962}
+      - {x: 0.19004974, y: 0.32}
 --- !u!82 &-1876588274467327955
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96,45 +135,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!60 &3622109729009794533
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3368500203637424865}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.05891633, y: 0.32}
-      - {x: 0.05978374, y: 0.06932071}
-      - {x: -0.19139683, y: 0.070377916}
-      - {x: -0.19002816, y: 0.32}
-      - {x: -0.32, y: 0.32}
-      - {x: -0.32, y: -0.060917147}
-      - {x: 0.05898106, y: -0.060417943}
-      - {x: 0.058624282, y: -0.32}
-      - {x: 0.18933156, y: -0.31999996}
-      - {x: 0.18913585, y: -0.060606793}
-      - {x: 0.3191326, y: -0.061425466}
-      - {x: 0.31956863, y: 0.06999661}
-      - {x: 0.19162443, y: 0.06988962}
-      - {x: 0.19004974, y: 0.32}
 --- !u!1001 &5095837840886645390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 30c0afecbf507a245b1f5ea723095dc9, type: 2}
     - target: {fileID: 7496061891155394667, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: value

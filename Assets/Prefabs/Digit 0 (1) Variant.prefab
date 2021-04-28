@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!60 &8869176120958584225
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343746127580453882}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 30c0afecbf507a245b1f5ea723095dc9, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.06527645, y: 0.3219443}
+      - {x: 0.059443407, y: 0.18915036}
+      - {x: 0.17824228, y: 0.18888658}
+      - {x: 0.17888317, y: -0.31805563}
+      - {x: 0.32, y: -0.32}
+      - {x: 0.32, y: 0.32}
 --- !u!82 &6037303272028046791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96,37 +127,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!60 &8869176120958584225
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8343746127580453882}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 30c0afecbf507a245b1f5ea723095dc9, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.06527645, y: 0.3219443}
-      - {x: 0.059443407, y: 0.18915036}
-      - {x: 0.17824228, y: 0.18888658}
-      - {x: 0.17888317, y: -0.31805563}
-      - {x: 0.32, y: -0.32}
-      - {x: 0.32, y: 0.32}
 --- !u!1001 &2003447039082388373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 30c0afecbf507a245b1f5ea723095dc9, type: 2}
+    - target: {fileID: 7496061891155394667, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: collisionVfx
       value: 

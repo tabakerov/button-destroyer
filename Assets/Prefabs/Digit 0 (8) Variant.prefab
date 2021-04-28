@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!60 &445523805598643364
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641166165982263982}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.20062046, y: 0.32058722}
+      - {x: -0.20053104, y: 0.20029643}
+      - {x: -0.32058725, y: 0.19944595}
+      - {x: -0.32038665, y: 0.059576005}
+      - {x: -0.19954443, y: 0.059960905}
+      - {x: -0.20103496, y: -0.05905264}
+      - {x: -0.32021567, y: -0.05963479}
+      - {x: -0.32002866, y: -0.190009}
+      - {x: -0.20078641, y: -0.19062045}
+      - {x: -0.20120771, y: -0.32}
+      - {x: 0.1912077, y: -0.32}
+      - {x: 0.19039902, y: -0.19048601}
+      - {x: 0.31882548, y: -0.19120772}
+      - {x: 0.31921813, y: -0.060217395}
+      - {x: 0.19065939, y: -0.059058875}
+      - {x: 0.19088626, y: 0.05903121}
+      - {x: 0.31957716, y: 0.059555933}
+      - {x: 0.32, y: 0.20062046}
+      - {x: 0.1894046, y: 0.20052728}
+      - {x: 0.19062045, y: 0.32058722}
 --- !u!82 &-1962415596166338469
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96,51 +141,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!60 &445523805598643364
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6641166165982263982}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.20062046, y: 0.32058722}
-      - {x: -0.20053104, y: 0.20029643}
-      - {x: -0.32058725, y: 0.19944595}
-      - {x: -0.32038665, y: 0.059576005}
-      - {x: -0.19954443, y: 0.059960905}
-      - {x: -0.20103496, y: -0.05905264}
-      - {x: -0.32021567, y: -0.05963479}
-      - {x: -0.32002866, y: -0.190009}
-      - {x: -0.20078641, y: -0.19062045}
-      - {x: -0.20120771, y: -0.32}
-      - {x: 0.1912077, y: -0.32}
-      - {x: 0.19039902, y: -0.19048601}
-      - {x: 0.31882548, y: -0.19120772}
-      - {x: 0.31921813, y: -0.060217395}
-      - {x: 0.19065939, y: -0.059058875}
-      - {x: 0.19088626, y: 0.05903121}
-      - {x: 0.31957716, y: 0.059555933}
-      - {x: 0.32, y: 0.20062046}
-      - {x: 0.1894046, y: 0.20052728}
-      - {x: 0.19062045, y: 0.32058722}
 --- !u!1001 &3759790885854657217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 30c0afecbf507a245b1f5ea723095dc9, type: 2}
     - target: {fileID: 7496061891155394667, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7496061891155394670, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: value
