@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -53,36 +48,9 @@ public class Player : MonoBehaviour
     {
         Vector2 vector = inputValue.ReadValue<Vector2>();
         target.position = vector;
-        //if (vector.sqrMagnitude > 0.01f)
-            
-        
-        //transform.rotation = Quaternion.Euler(0f, 0f,  - Mathf.Rad2Deg * Mathf.Asin(vector.x));
-        //transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(new Vector3(vector.x, vector.y, 0f), new Vector3(0f, 0f, 1f)));
-        //transform.SetPositionAndRotation(new Vector3(vector.x, vector.y, 0f), Quaternion.identity);
     }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        Digit digit;
-        if (other.TryGetComponent(out digit))
-        {
-            
-            Debug.Log("kill me!");
-            if (digit.old)
-            {
-                if (digit.value + value + 1 == alphabet.letters.Count + 1)
-                {
-                    
-                }
-                else
-                {
-                    lost.SetActive(true);
-                }
-            }
-        }
-    }
-    */
+
 
     public void Kill()
     {

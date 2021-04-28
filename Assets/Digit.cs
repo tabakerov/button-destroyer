@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Digit : MonoBehaviour
 {
@@ -18,6 +13,7 @@ public class Digit : MonoBehaviour
     public int targetSum;
     public GameObject collisionVfx;
     public Player player;
+    public bool hit;
     
     void GrowUp()
     {
@@ -64,52 +60,36 @@ public class Digit : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         Digit otherDigit;
-        Debug.Log("collision");
-        /*
-        Player player;
-        if (other.gameObject.TryGetComponent(out player) && old)
-        {
-            Debug.Log($"{value} + {player.value} = {targetSum}");
-            if (player.value + value == targetSum)
-            {
-                score.AddScore();
-                var vfx  = Instantiate(collapseVfxPrefab, transform.position, Quaternion.identity);
-                Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
-                Destroy(gameObject);
-            }
-            else
-            {
-                player.Kill();    
-            }
-            
-        }
-        */
+
         if (other.gameObject.TryGetComponent(out otherDigit))
         {
-            //Debug.Log("other digit");
+            if (hit == false)
+            {
+                hit = true;
+                if (otherDigit.value + value == targetSum)
+                {
+                    if (master)
+                    {
+                        Debug.Log($"Im {gameObject.name} hitting {otherDigit.gameObject.name}");
+                        otherDigit.master = false;
+                        score.AddScore();
+                        var thisVfx = Instantiate(collapseVfxPrefab, other.transform.position, Quaternion.identity);
+                        var otherVfx = Instantiate(collapseVfxPrefab, transform.position, Quaternion.identity);
+                        Destroy(thisVfx, thisVfx.GetComponent<AudioSource>().clip.length);
+                        Destroy(otherVfx, otherVfx.GetComponent<AudioSource>().clip.length);
+                        Destroy(other.gameObject);
+                        Destroy(gameObject);
+                    }
+                }
+                else
+                {
+                    if (collisionVfx != null)
+                    {
+                        var vfx = Instantiate(collisionVfx, other.GetContact(0).point, Quaternion.identity);
+                        Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
+                    }
 
-            if (otherDigit.value + value == targetSum)
-            {
-                if (master)
-                {
-                    otherDigit.master = false;
-                    score.AddScore();
-                    var thisVfx  = Instantiate(collapseVfxPrefab, other.transform.position, Quaternion.identity);
-                    var otherVfx  = Instantiate(collapseVfxPrefab, transform.position, Quaternion.identity);
-                    Destroy(thisVfx, thisVfx.GetComponent<AudioSource>().clip.length);
-                    Destroy(otherVfx, otherVfx.GetComponent<AudioSource>().clip.length);
-                    Destroy(other.gameObject);
-                    Destroy(gameObject);
                 }
-            }
-            else
-            {
-                if (collisionVfx != null)
-                {
-                    var vfx  = Instantiate(collisionVfx, other.GetContact(0).point, Quaternion.identity);
-                    Destroy(vfx, vfx.GetComponent<AudioSource>().clip.length);
-                }
-                
             }
         }
     }
