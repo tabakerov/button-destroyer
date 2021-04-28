@@ -14,6 +14,9 @@ public class Digit : MonoBehaviour
     public GameObject collisionVfx;
     public Player player;
     public bool hit;
+    public float gravityConstant;
+    public float gravityDecayExponent;
+    public float vPrev;
     
     void GrowUp()
     {
@@ -31,11 +34,49 @@ public class Digit : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
+
+    Vector2 CalculateGravity()
+    {
+        var digits = FindObjectsOfType<Digit>();
+        var force = Vector2.zero;
+
+        force -= (Vector2)transform.position.normalized * gravityConstant * value * player.value / (
+                        Mathf.Pow((transform.position.magnitude),
+                                        gravityDecayExponent));
+        foreach (var d in digits)
+        {
+            if (d.Equals(this)) continue;
+            var dir = (Vector2)d.transform.position - (Vector2)transform.position;
+            force += dir.normalized * gravityConstant * value * d.value / (
+                            Mathf.Pow((dir.magnitude),
+                                            gravityDecayExponent)
+            );
+        }
+        
+        return force;
+    }
+
+    void UpdateDrag()
+    {
+        Debug.Log($"deltaV = {vPrev - thisRigidbody.velocity.magnitude}");
+        if (thisRigidbody.velocity.magnitude < 1f)
+        {
+            thisRigidbody.drag -= 0.1f;
+        }
+        else if (thisRigidbody.velocity.magnitude > 7f)
+        {
+            thisRigidbody.drag += 0.1f;
+        }
+
+        vPrev = thisRigidbody.velocity.magnitude;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        thisRigidbody.AddForce(- speed * Time.deltaTime * transform.position.normalized);
-        transform.Translate(- Time.deltaTime * transform.position.normalized);
+        UpdateDrag();
+        thisRigidbody.AddForce(CalculateGravity());
+        //transform.Translate(- Time.deltaTime * transform.position.normalized);
        
         
         

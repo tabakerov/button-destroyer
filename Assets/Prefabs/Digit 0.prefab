@@ -110,6 +110,8 @@ MonoBehaviour:
   collisionVfx: {fileID: 4362236339969516530, guid: ca8c6dc0cb2064b42bd3b82917293331, type: 3}
   player: {fileID: 0}
   hit: 0
+  gravityConstant: 0
+  gravityDecayExponent: 0
 --- !u!50 &7496061891155394667
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +125,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.8
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

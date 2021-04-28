@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public float radiusMinMult;
     public float radiusMaxMult;
     public float spawnRateDelta;
+    public GravityProps gravityProps;
 
     public AudioClip spawnSound;
 
@@ -17,6 +18,8 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         sound = GetComponent<AudioSource>();
+        gravityProps = FindObjectOfType<GravityProps>();
+        
     }
 
     // Update is called once per frame
@@ -30,13 +33,16 @@ public class Spawner : MonoBehaviour
                             * spawnRadius 
                             * Random.Range(radiusMinMult, radiusMaxMult),
                             Quaternion.identity);
+            var d = newborn.GetComponent<Digit>();
+            d.gravityConstant = gravityProps.gravityConstant;
+            d.gravityDecayExponent = gravityProps.gravityDecayExponent;
             spawnedTime = Time.time;
             spawnRate += spawnRateDelta;
             var forcePosition = newborn.transform.position;
             forcePosition.x += Random.Range(-1f, 1f);
             forcePosition.y += Random.Range(-1f, 1f);
-            newborn.GetComponent<Rigidbody2D>().AddTorque(
-                            Random.Range(-5f, 5f));
+            //newborn.GetComponent<Rigidbody2D>().AddTorque(
+            //                Random.Range(-5f, 5f));
             if (spawnRate < 0.3f) spawnRate = 0.3f;
         }
     }
