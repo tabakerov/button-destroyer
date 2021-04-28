@@ -1,83 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!60 &265396615509802386
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984647940081674154}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.12, y: -0.38}
-      - {x: -0.099999994, y: -0.48}
-      - {x: -0.14999999, y: -0.57}
-      - {x: -0.14999999, y: -0.63}
-      - {x: -0.07, y: -0.63}
-      - {x: 0.14, y: -0.51}
-      - {x: 0.19, y: -0.42999998}
-      - {x: 0.19, y: -0.38}
-    - - {x: 0.22999999, y: 0.19999999}
-      - {x: 0.22999999, y: 0.5}
-      - {x: 0.22, y: 0.53999996}
-      - {x: 0.14, y: 0.64}
-      - {x: -0.17999999, y: 0.64}
-      - {x: -0.28, y: 0.53999996}
-      - {x: -0.32999998, y: 0.45}
-      - {x: -0.34, y: 0.31}
-      - {x: -0.32999998, y: 0.21}
-      - {x: -0.14999999, y: 0.08}
-      - {x: 0.03, y: 0.12}
-      - {x: 0.07, y: 0.099999994}
-      - {x: -0.06, y: -0.19999999}
-      - {x: -0.26, y: -0.45}
-      - {x: -0.45, y: -0.48999998}
-      - {x: -0.45999998, y: -0.51}
-      - {x: -0.45999998, y: -0.57}
-      - {x: -0.41, y: -0.59999996}
-      - {x: -0.29, y: -0.59999996}
-      - {x: -0.19999999, y: -0.56}
-      - {x: 0.04, y: -0.28}
-      - {x: 0.19, y: 0.02}
-    - - {x: -0.14, y: 0.24}
-      - {x: -0.17999999, y: 0.28}
-      - {x: -0.17999999, y: 0.29999998}
-      - {x: -0.19999999, y: 0.34}
-      - {x: -0.19999999, y: 0.39}
-      - {x: -0.19, y: 0.39999998}
-      - {x: -0.19, y: 0.42}
-      - {x: -0.16, y: 0.47}
-      - {x: -0.11, y: 0.52}
-      - {x: -0.06, y: 0.55}
-      - {x: -0.03, y: 0.55}
-      - {x: -0.02, y: 0.56}
-      - {x: 0.03, y: 0.56}
-      - {x: 0.06, y: 0.53999996}
-      - {x: 0.089999996, y: 0.51}
-      - {x: 0.11, y: 0.48}
-      - {x: 0.12, y: 0.38}
-      - {x: 0.089999996, y: 0.32999998}
-      - {x: 0.03, y: 0.26999998}
-      - {x: -0.02, y: 0.24}
-      - {x: -0.049999997, y: 0.24}
-      - {x: -0.11, y: 0.22999999}
-      - {x: -0.12, y: 0.24}
 --- !u!82 &155678942407482307
 AudioSource:
   m_ObjectHideFlags: 0
@@ -174,6 +96,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!60 &4946624744277681940
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984647940081674154}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.20079572, y: 0.32}
+      - {x: -0.20075372, y: 0.20001277}
+      - {x: -0.32, y: 0.19959694}
+      - {x: -0.32, y: 0.05953774}
+      - {x: -0.19845045, y: 0.05953774}
+      - {x: -0.2001586, y: -0.059111223}
+      - {x: 0.00020989776, y: -0.060510896}
+      - {x: 0.00015336275, y: -0.18137348}
+      - {x: -0.31913206, y: -0.17982018}
+      - {x: -0.32, y: -0.32}
+      - {x: 0.18997777, y: -0.32}
+      - {x: 0.18998426, y: -0.1905549}
+      - {x: 0.31888306, y: -0.19018894}
+      - {x: 0.31975535, y: 0.20043984}
+      - {x: 0.1903944, y: 0.20066196}
+      - {x: 0.18959697, y: 0.32}
 --- !u!1001 &8326520587022133189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,7 +191,7 @@ PrefabInstance:
     - target: {fileID: 7496061891155394665, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a9cf5a379c0e15446b2c3faabcaea67b, type: 3}
+      objectReference: {fileID: 21300000, guid: 0cf54c81afbd7d947a0f72d5de3625fd, type: 3}
     - target: {fileID: 7496061891155394667, guid: 0b0999d32b0c82146b6a2f07babc110d, type: 3}
       propertyPath: m_Material
       value: 
